@@ -1,31 +1,22 @@
-# jupyter-powershell
+# Docker Image for jupyter-powershell
 
-PowerShell language kernel for Jupyter.
-Works on Windows, Linux and MacOS.
+Dockerized PowerShell language kernel for Jupyter. Works on Linux and Docker Desktop.
 
-## Install kernel 
+## Build Container Image
 
-```
-pip install powershell_kernel
-python -m powershell_kernel.install
-```
-
-This command will install the kernel with Full PowerShell on Windows and Core on non-Windows.
-You can also specify command (i.e. if you want to use powershell Core on Windows).
+To build the container image, run the following command:
 
 ```
-python -m powershell_kernel.install --powershell-command pwsh
+docker build --tag jupyter-powershell .
 ```
 
-## Run
-
-Run jupyter and you will see new kernel available!
+To run a container, run the following command:
 
 ```
-jupyter notebook
+docker run --interactive --tty --publish 8080:8080 jupyter-powershell
 ```
 
-## Aknowledgement
+## Acknowledgement
 
 This is an early prototype, but I tried to avoid unnessesary dependencies.
 
@@ -44,8 +35,3 @@ This means that, although the parts of SublimeREPL that I (wuub) wrote are publi
 I'd like to avoid GPLv2 dependencies (and I don't need any of that code), so I want to list all used code (BSD/MIT):
 
 * `subprocess_repl.py` wrote by wuub, licensed under BSD/MIT.
-
-
-### LICENSE
-
-All code that I (vors) wrote is licensed under MIT v3 license.
